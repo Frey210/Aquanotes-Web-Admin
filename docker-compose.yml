@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  web-admin:
+    build: .
+    ports:
+      - "5174:80"
+    environment:
+      - VITE_API_BASE_URL=http://backend:8000
+    depends_on:
+      - backend
+
+  backend:
+    image: aquanotes-backend:latest
+    ports:
+      - "8000:8000"

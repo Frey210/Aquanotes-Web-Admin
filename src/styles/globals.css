@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f7fafc;
+  --panel: rgba(255, 255, 255, 0.92);
+  --panel-strong: #ffffff;
+  --text: #0b1222;
+  --muted: #5b667a;
+  --border: rgba(15, 23, 42, 0.12);
+  --accent: #00b4e6;
+  --accent-strong: #00a2cf;
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0b1222;
+  --panel: rgba(16, 26, 46, 0.78);
+  --panel-strong: #111a2e;
+  --text: #eef2ff;
+  --muted: #9aa6bf;
+  --border: rgba(148, 163, 184, 0.2);
+  --accent: #38d6ff;
+  --accent-strong: #1cc2ef;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.bg-atmosphere {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(0, 180, 230, 0.12), transparent 45%),
+    radial-gradient(circle at 90% 20%, rgba(16, 185, 129, 0.1), transparent 40%),
+    linear-gradient(180deg, rgba(8, 14, 26, 0.04), transparent 45%),
+    var(--bg);
+}
+
+.dark .bg-atmosphere {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(0, 180, 230, 0.2), transparent 45%),
+    radial-gradient(circle at 90% 20%, rgba(16, 185, 129, 0.18), transparent 40%),
+    linear-gradient(180deg, rgba(8, 14, 26, 0.2), transparent 45%),
+    var(--bg);
+}
+
+.glass-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.shadow-card {
+  box-shadow: 0 12px 30px rgba(3, 10, 28, 0.16);
+}
