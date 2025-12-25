@@ -35,7 +35,11 @@ Auth storage: the access token is cached in memory and mirrored to `localStorage
 ## Environment Variables
 | Key | Description | Example |
 | --- | --- | --- |
-| `VITE_API_BASE_URL` | Base URL API backend. | `https://api.example.com` |
+| `VITE_API_BASE_URL` | Base URL API backend. | `https://aquanotes-api.inkubasistartupunhas.id` |
+
+## Production URLs
+- Web admin: `https://aquanotes-web.inkubasistartupunhas.id`
+- Backend API: `https://aquanotes-api.inkubasistartupunhas.id`
 
 ## Docker
 Build and run the admin with nginx:
