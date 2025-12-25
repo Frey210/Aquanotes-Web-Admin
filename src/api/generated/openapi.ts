@@ -691,6 +691,8 @@ export interface components {
             last_seen?: string | null;
             /** Is Active */
             is_active?: boolean | null;
+            /** Deactivate At */
+            deactivate_at?: string | null;
         };
         /** AdminDeviceStatusUpdate */
         AdminDeviceStatusUpdate: {
@@ -766,6 +768,8 @@ export interface components {
             last_seen?: string | null;
             /** Connection Interval */
             connection_interval?: number | null;
+            /** Deactivate At */
+            deactivate_at?: string | null;
         };
         /** DeviceStatusResponse */
         DeviceStatusResponse: {
