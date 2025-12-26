@@ -27,6 +27,13 @@ export function getAccessToken() {
   return accessToken;
 }
 
+export function normalizeApiBaseUrl(baseUrl: string): string {
+  if (typeof window !== "undefined" && window.location?.protocol === "https:" && baseUrl.startsWith("http://")) {
+    return `https://${baseUrl.slice("http://".length)}`;
+  }
+  return baseUrl;
+}
+
 export function getApiBaseUrl() {
   return import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 }
@@ -35,7 +42,7 @@ export async function apiFetch<T>(
   path: string,
   options: RequestInit & { json?: unknown } = {}
 ): Promise<T> {
-  const baseUrl = getApiBaseUrl().replace(/\/$/, "");
+  const baseUrl = normalizeApiBaseUrl(getApiBaseUrl()).replace(/\/$/, "");
   const headers = new Headers(options.headers);
 
   if (options.json !== undefined) {
@@ -86,7 +93,7 @@ export async function apiFetchWithMeta<T>(
   path: string,
   options: RequestInit & { json?: unknown } = {}
 ): Promise<{ data: T; total?: number }> {
-  const baseUrl = getApiBaseUrl().replace(/\/$/, "");
+  const baseUrl = normalizeApiBaseUrl(getApiBaseUrl()).replace(/\/$/, "");
   const headers = new Headers(options.headers);
 
   if (options.json !== undefined) {
@@ -137,7 +144,7 @@ export async function apiFetchWithMeta<T>(
 }
 
 export async function downloadFile(path: string, payload: unknown, filename: string) {
-  const baseUrl = getApiBaseUrl().replace(/\/$/, "");
+  const baseUrl = normalizeApiBaseUrl(getApiBaseUrl()).replace(/\/$/, "");
   const token = getAccessToken();
   const response = await fetch(`${baseUrl}${path}`, {
     method: "POST",

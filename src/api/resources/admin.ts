@@ -1,8 +1,8 @@
-import { ApiError, getApiBaseUrl } from "@/api/http";
+import { ApiError, getApiBaseUrl, normalizeApiBaseUrl } from "@/api/http";
 import type { AdminDevice, Device } from "@/api/types";
 
 async function adminFetch<T>(path: string, apiKey: string, options: RequestInit & { json?: unknown } = {}) {
-  const baseUrl = getApiBaseUrl().replace(/\/$/, "");
+  const baseUrl = normalizeApiBaseUrl(getApiBaseUrl()).replace(/\/$/, "");
   const headers = new Headers(options.headers);
   headers.set("X-API-Key", apiKey);
 
