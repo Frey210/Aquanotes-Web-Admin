@@ -243,9 +243,9 @@ export function DevicesPage() {
                   <TH>UID</TH>
                   {isAdmin && <TH>Owner</TH>}
                   <TH>Status</TH>
-                  <TH>Last Seen</TH>
-                  <TH>Active</TH>
-                  {!isAdmin && <TH>Interval (min)</TH>}
+                  <TH className="hidden md:table-cell">Last Seen</TH>
+                  <TH className="hidden md:table-cell">Active</TH>
+                  {!isAdmin && <TH className="hidden md:table-cell">Interval (min)</TH>}
                   <TH>Actions</TH>
                 </TRow>
               </THead>
@@ -273,8 +273,8 @@ export function DevicesPage() {
                           {device.status ?? "offline"}
                         </Badge>
                       </TD>
-                      <TD>{formatTimestamp(device.last_seen)}</TD>
-                      <TD>
+                      <TD className="hidden md:table-cell">{formatTimestamp(device.last_seen)}</TD>
+                      <TD className="hidden md:table-cell">
                         <Badge variant={device.is_active === false ? "danger" : "success"}>
                           {device.is_active === false ? "Inactive" : "Active"}
                         </Badge>
@@ -336,13 +336,13 @@ export function DevicesPage() {
                           {device.status ?? "offline"}
                         </Badge>
                       </TD>
-                      <TD>{formatTimestamp(device.last_seen)}</TD>
-                      <TD>
+                      <TD className="hidden md:table-cell">{formatTimestamp(device.last_seen)}</TD>
+                      <TD className="hidden md:table-cell">
                         <Badge variant={device.is_active === false ? "danger" : "success"}>
                           {device.is_active === false ? "Inactive" : "Active"}
                         </Badge>
                       </TD>
-                      <TD>{device.connection_interval ?? 5}</TD>
+                      <TD className="hidden md:table-cell">{device.connection_interval ?? 5}</TD>
                       <TD className="space-x-2">
                         <Button
                           variant="ghost"
