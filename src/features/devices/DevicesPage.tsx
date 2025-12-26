@@ -235,8 +235,9 @@ export function DevicesPage() {
             <CardTitle>{isAdmin ? "All Devices" : "Devices"}</CardTitle>
           </CardHeader>
           <CardContent>
-            <Table>
-              <THead>
+            <div className="w-full overflow-x-auto">
+              <Table className="min-w-[720px]">
+                <THead>
                 <TRow>
                   <TH>Name</TH>
                   <TH>UID</TH>
@@ -380,7 +381,8 @@ export function DevicesPage() {
                   </TRow>
                 )}
               </TBody>
-            </Table>
+              </Table>
+            </div>
           </CardContent>
         </Card>
         <Card className="min-w-0">
@@ -502,7 +504,8 @@ export function DevicesPage() {
               </form>
             </div>
 
-            <Table>
+            <div className="w-full overflow-x-auto">
+              <Table className="min-w-[640px]">
               <THead>
                 <TRow>
                   <TH>ID</TH>
@@ -530,7 +533,8 @@ export function DevicesPage() {
                   </TRow>
                 )}
               </TBody>
-            </Table>
+              </Table>
+            </div>
           </CardContent>
         </Card>
       )}

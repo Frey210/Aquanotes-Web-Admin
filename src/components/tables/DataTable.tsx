@@ -33,8 +33,9 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <Table>
-      <THead>
+    <div className="w-full overflow-x-auto">
+      <Table className="min-w-[640px]">
+        <THead>
         {table.getHeaderGroups().map((headerGroup) => (
           <TRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
@@ -67,6 +68,7 @@ export function DataTable<TData, TValue>({
           </TRow>
         )}
       </TBody>
-    </Table>
+      </Table>
+    </div>
   );
 }

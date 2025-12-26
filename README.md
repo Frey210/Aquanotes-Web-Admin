@@ -116,6 +116,11 @@ spec:
 ## Cloudflare Tunnel (Opsional)
 Expose `admin.<domain>` ke Service `aquanotes-web-admin` via Cloudflare Tunnel.
 
+
+## Ops Notes
+- Tables use horizontal scroll on small screens to avoid overflow.
+- Nginx sets `upgrade-insecure-requests` to prevent mixed-content when the API base URL is HTTPS.
+
 ## OpenAPI Types
 - Source schema: `docs/openapi.json`
 - Generated types: `src/api/generated/openapi.ts`
